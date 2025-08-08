@@ -1,0 +1,19 @@
+package com.dulceyson.juezVirtual.domain.dtos;
+
+public class ChatMessageDTO {
+    private String message;
+
+    public ChatMessageDTO() {}
+
+    public ChatMessageDTO(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}

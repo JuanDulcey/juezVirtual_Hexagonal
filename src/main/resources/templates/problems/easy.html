@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{layout/base-layout :: head}"></head>
+
+<body>
+<div th:replace="~{layout/base-layout :: nav}"></div>
+
+<!-- Sección de Problemas Fáciles -->
+<section class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">Problemas Fáciles</h2>
+
+    <div class="row g-4">
+        <!-- Problema: Hello World -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-code fa-2x text-primary mb-3"></i>
+                    <h5 class="card-title">Hello World!</h5>
+                    <p class="card-text">Escribe un programa que imprima nuestro primer "Hello World!".</p>
+                    <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#problemaModalHello">Resolver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problema: X Cubic -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-cube fa-2x text-success mb-3"></i>
+                    <h5 class="card-title">X Cubic</h5>
+                    <p class="card-text">Calcula el cubo de un número entero dado.</p>
+                    <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#problemaModalCubic">Resolver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problema: Rectangle -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-ruler-combined fa-2x text-warning mb-3"></i>
+                    <h5 class="card-title">Rectangle</h5>
+                    <p class="card-text">Calcula el área y perímetro de un rectángulo dado.</p>
+                    <button class="btn btn-outline-warning mt-2" data-bs-toggle="modal" data-bs-target="#problemaModalRectangle">Resolver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal: Hello World -->
+<div class="modal fade" id="problemaModalHello" tabindex="-1" aria-labelledby="problemaModalHelloLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content shadow">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="problemaModalHelloLabel">Hello World</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Escribe un programa que imprima <code>"Hello World"</code> en una línea.</p>
+                <h6>Entrada:</h6>
+                <p>Sin entrada.</p>
+                <h6>Salida:</h6>
+                <p>Imprime exactamente <code>"Hello World"</code>. Asegúrate de incluir un salto de línea al final.</p>
+            </div>
+            <div class="modal-footer">
+                <a th:href="@{/submit(problemId='ITP1_1_A')}" class="btn btn-primary">Solucionar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: X Cubic -->
+<div class="modal fade" id="problemaModalCubic" tabindex="-1" aria-labelledby="problemaModalCubicLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content shadow">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="problemaModalCubicLabel">X Cubic</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Calcula el cubo de un número entero <code>x</code>.</p>
+                <h6>Entrada:</h6>
+                <p>Un número entero <code>x</code>.</p>
+                <h6>Salida:</h6>
+                <p>El cubo de <code>x</code>.</p>
+                <h6>Restricciones:</h6>
+                <p>1 ≤ x ≤ 100</p>
+                <h6>Ejemplos:</h6>
+                <pre>Entrada: 2
+Salida: 8</pre>
+                <pre>Entrada: 3
+Salida: 27</pre>
+            </div>
+            <div class="modal-footer">
+                <a th:href="@{/submit(problemId='ITP1_4_D')}" class="btn btn-success">Solucionar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Rectangle -->
+<div class="modal fade" id="problemaModalRectangle" tabindex="-1" aria-labelledby="problemaModalRectangleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content shadow">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title" id="problemaModalRectangleLabel">Rectangle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Calcula el área y perímetro de un rectángulo con lados <code>a</code> y <code>b</code>.</p>
+                <h6>Entrada:</h6>
+                <p>Dos enteros separados por un espacio: <code>a</code> y <code>b</code>.</p>
+                <h6>Salida:</h6>
+                <p>Área y perímetro separados por un espacio.</p>
+                <h6>Restricciones:</h6>
+                <p>1 ≤ a, b ≤ 100</p>
+                <h6>Ejemplo:</h6>
+                <pre>Entrada: 3 5
+Salida: 15 16</pre>
+            </div>
+            <div class="modal-footer">
+                <a th:href="@{/submit(problemId='ITP1_1_C')}" class="btn btn-warning text-dark">Solucionar</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{layout/base-layout :: footer}"></div>
+
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a2e8f3c2c4.js" crossorigin="anonymous"></script>
+</body>
+</html>

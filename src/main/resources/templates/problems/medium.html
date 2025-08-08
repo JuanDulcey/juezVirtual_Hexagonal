@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{layout/base-layout :: head}">
+  <!-- Puedes agregar aquí el enlace a Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Estilo para las tarjetas */
+    .problema-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.8rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .problema-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .btn-resolver {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #2c3e50;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+
+<body>
+<div th:replace="~{layout/base-layout :: nav}"></div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-5 section-title">Problemas Medios</h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-6 col-lg-4">
+      <div class="problema-card">
+        <div class="d-flex align-items-center mb-3">
+          <i class="bi bi-diagram-3 fs-2 text-primary me-3"></i>
+          <h5 class="mb-0">Prime Factorization</h5>
+        </div>
+        <p>Descompón un número en sus factores primos.</p>
+        <a href="#" class="btn btn-primary btn-resolver mt-3" data-bs-toggle="modal" data-bs-target="#problemaModal">
+          <i class="bi bi-calculator"></i> Resolver
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="problema-card">
+        <div class="d-flex align-items-center mb-3">
+          <i class="bi bi-123 fs-2 text-success me-3"></i>
+          <h5 class="mb-0">Euler's Phi Function</h5>
+        </div>
+        <p>Cuenta los enteros positivos ≤ n que son primos relativos a n.</p>
+        <a href="#" class="btn btn-success btn-resolver mt-3" data-bs-toggle="modal" data-bs-target="#modalEulerPhi">
+          <i class="bi bi-calculator"></i> Resolver
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="problema-card">
+        <div class="d-flex align-items-center mb-3">
+          <i class="bi bi-lightning-charge fs-2 text-warning me-3"></i>
+          <h5 class="mb-0">Power</h5>
+        </div>
+        <p>Calcula mⁿ mod 1,000,000,007 para enteros m y n dados.</p>
+        <a href="#" class="btn btn-warning btn-resolver mt-3 text-dark" data-bs-toggle="modal" data-bs-target="#modalPower">
+          <i class="bi bi-calculator"></i> Resolver
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modales (sin cambios en contenido, solo pequeños detalles visuales) -->
+<div class="modal fade" id="problemaModal" tabindex="-1" aria-labelledby="problemaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="problemaModalLabel"><i class="bi bi-diagram-3 me-2"></i>Prime Factorization</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Factorize a given integer <code>n</code>.</h4>
+        <h5>Input</h5>
+        <p><code>n</code> — An integer <code>n</code> is given in a line.</p>
+        <h5>Output</h5>
+        <p>Print the given integer <code>n</code> followed by a colon and its prime factors in ascending order. Repeat prime factors according to multiplicity. Include a space before each factor.</p>
+        <h5>Constraints</h5>
+        <p>2 ≤ n ≤ 10<sup>9</sup></p>
+        <h5>Sample Input 1</h5>
+        <pre>12</pre>
+        <h5>Sample Output 1</h5>
+        <pre>12: 2 2 3</pre>
+        <h5>Sample Input 2</h5>
+        <pre>126</pre>
+        <h5>Sample Output 2</h5>
+        <pre>126: 2 3 3 7</pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a th:href="@{/submit(problemId='NTL_1_A')}" class="btn btn-primary">Solucionar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalEulerPhi" tabindex="-1" aria-labelledby="modalEulerPhiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="modalEulerPhiLabel"><i class="bi bi-123 me-2"></i>Euler's Phi Function</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>For given integer <code>n</code>, count the totatives of <code>n</code>, i.e., positive integers ≤ <code>n</code> relatively prime to <code>n</code>.</p>
+        <h5>Input</h5>
+        <p><code>n</code> — An integer (1 ≤ n ≤ 1,000,000,000).</p>
+        <h5>Output</h5>
+        <p>Print the number of totatives in a line.</p>
+        <h5>Sample Input 1</h5>
+        <pre>6</pre>
+        <h5>Sample Output 1</h5>
+        <pre>2</pre>
+        <h5>Sample Input 2</h5>
+        <pre>1000000</pre>
+        <h5>Sample Output 2</h5>
+        <pre>400000</pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a th:href="@{/submit(problemId='NTL_1_D')}" class="btn btn-success">Solucionar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalPower" tabindex="-1" aria-labelledby="modalPowerLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-dark">
+        <h5 class="modal-title" id="modalPowerLabel"><i class="bi bi-lightning-charge me-2"></i>Power</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>For integers <code>m</code> and <code>n</code>, compute <code>mⁿ mod 1,000,000,007</code>.</p>
+        <p><code>A mod M</code> means the remainder when <code>A</code> is divided by <code>M</code>.</p>
+        <h5>Input</h5>
+        <p><code>m n</code> — Two integers given in a line.</p>
+        <h5>Output</h5>
+        <p>Print <code>mⁿ mod 1,000,000,007</code>.</p>
+        <h5>Constraints</h5>
+        <p>1 ≤ m ≤ 100<br>1 ≤ n ≤ 10⁹</p>
+        <h5>Sample Input 1</h5>
+        <pre>2 3</pre>
+        <h5>Sample Output 1</h5>
+        <pre>8</pre>
+        <h5>Sample Input 2</h5>
+        <pre>5 8</pre>
+        <h5>Sample Output 2</h5>
+        <pre>390625</pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a th:href="@{/submit(problemId='NTL_1_B')}" class="btn btn-warning text-dark">Solucionar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="~{layout/base-layout :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

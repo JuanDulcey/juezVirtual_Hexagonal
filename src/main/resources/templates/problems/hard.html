@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{layout/base-layout :: head}"></head>
+
+<body>
+<div th:replace="~{layout/base-layout :: nav}"></div>
+
+
+<section class="container my-5">
+    <h2 class="text-center mb-4">Problemas Difíciles</h2>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="problema-card">
+                <h5>Echo 5</h5>
+                <p>Muestra cinco enteros dados en orden inverso.</p>
+                <a href="#" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#problemaModalEcho5">Resolver</a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="problema-card">
+                <h5>Remainder</h5>
+                <p>For two integers A and B, compute the remainder obtained by dividing A by B.</p>
+                <a href="#" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalRemainder">Resolver</a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="problema-card">
+                <h5>Tenth Power</h5>
+                <p>Compute the tenth power of the integer A.</p>
+                <a href="#" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalTenthPower">Resolver</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="problemaModalEcho5" tabindex="-1" aria-labelledby="problemaModalEcho5Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="problemaModalEcho5Label">Echo 5</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Output the given five integers in reverse order.</h4>
+
+                <h5>Input</h5>
+                <p>Three integers <code>a</code>, <code>b</code>, <code>c</code> are given on the first line and two integers <code>d</code>, <code>e</code> on the second line.</p>
+
+                <h5>Output</h5>
+                <p>Output <code>e</code>, <code>d</code>, <code>c</code>, <code>b</code>, and <code>a</code> in that order.</p>
+
+                <h5>Sample Input 1</h5>
+                <pre>1 1 1
+2 2</pre>
+
+                <h5>Sample Output 1</h5>
+                <pre>2 2 1 1 1</pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <a th:href="@{/submit(problemId='INFO1_03_E')}" class="btn btn-primary">Solucionar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalRemainder" tabindex="-1" aria-labelledby="modalRemainderLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRemainderLabel">Remainder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>For two integers <code>A</code> and <code>B</code>, compute the remainder obtained by dividing <code>A</code> by <code>B</code>.</p>
+
+                <h5>Input</h5>
+                <p><code>A</code> is given on the first line and <code>B</code> is given on the second line.</p>
+
+                <h5>Output</h5>
+                <p>Output the remainder of <code>A</code> divided by <code>B</code>.</p>
+
+                <h5>Constraints</h5>
+                <p>0 ≤ A ≤ 1000<br>1 ≤ B ≤ 1000</p>
+
+                <h5>Sample Input 1</h5>
+                <pre>2
+1</pre>
+                <h5>Sample Output 1</h5>
+                <pre>0</pre>
+
+                <h5>Sample Input 2</h5>
+                <pre>7
+3</pre>
+                <h5>Sample Output 2</h5>
+                <pre>1</pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <a th:href="@{/submit(problemId='INFO1_04_E')}" class="btn btn-primary">Resolver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalTenthPower" tabindex="-1" aria-labelledby="modalTenthPowerLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTenthPowerLabel">Tenth Power</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p>Compute the tenth power of the integer <code>A</code>.</p>
+
+                <h5>Input</h5>
+                <p><code>A</code> is given in a line.</p>
+
+                <h5>Output</h5>
+                <p>Output the value of the tenth power of <code>A</code>.</p>
+
+                <h5>Constraints</h5>
+                <p>0 ≤ A ≤ 8</p>
+
+                <h5>Sample Input 1</h5>
+                <pre>2</pre>
+                <h5>Sample Output 1</h5>
+                <pre>1024</pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <a th:href="@{/submit(problemId='INFO1_04_F')}" class="btn btn-primary">Resolver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{layout/base-layout :: footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
